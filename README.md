@@ -1,69 +1,77 @@
-# React + TypeScript + Vite
+# 💬 Dev Frases — Gerador de Frases
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web que gera **frases aleatórias por categoria**. O usuário escolhe entre as categorias disponíveis (**Motivação** e **Bem estar**), clica em **Gerar frase** e recebe uma frase aleatória na tela.
 
-Currently, two official plugins are available:
+Projeto desenvolvido durante meus **estudos de ReactJS + TypeScript**, praticando os fundamentos da biblioteca em uma aplicação simples e interativa.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 💡 Como funciona
 
-## Expanding the ESLint configuration
+1. As frases ficam organizadas em um array de categorias, cada uma com sua lista de frases
+2. Ao clicar em uma categoria, ela é selecionada e destacada visualmente
+3. O botão **Gerar frase** sorteia aleatoriamente (`Math.random`) uma frase da categoria ativa e a exibe na tela
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📚 Conceitos praticados
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Componentes funcionais e **TSX**
+- Gerenciamento de estado com **`useState`**
+- Renderização de listas com **`.map()`** e uso de `key`
+- Renderização condicional
+- Estilização dinâmica (destaque da categoria selecionada via `style` condicional)
+- Manipulação de eventos (`onClick`)
+- Estilização com CSS
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tecnologias
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **React 19**
+- **TypeScript 5**
+- **Vite 7** — build e dev server
+- **ESLint** — padronização de código
+
+## ▶️ Como executar
+
+Pré-requisito: Node.js instalado
+
+```bash
+# Clone o repositório
+git clone https://github.com/luanmvcosta0/react-dev-frases.git
+cd react-dev-frases
+
+# Instale as dependências
+npm install
+
+# Rode em modo de desenvolvimento
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+A aplicação ficará disponível em `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Outros scripts
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build     # Build de produção
+npm run preview   # Visualiza o build de produção
+npm run lint      # Roda o ESLint
 ```
+
+## 📁 Estrutura
+
+```
+react-dev-frases/
+├── public/
+├── src/
+│   ├── assets/        # Logo da aplicação
+│   ├── App.tsx        # Componente principal (categorias + gerador)
+│   ├── App.css
+│   ├── main.tsx       # Entry point
+│   └── index.css
+├── index.html
+├── vite.config.ts
+└── package.json
+```
+
+## 🚀 Possíveis evoluções
+
+- Adicionar novas categorias e frases
+- Botão para copiar a frase gerada
+- Compartilhamento da frase em redes sociais
+- Evitar repetição da mesma frase em sorteios seguidos
